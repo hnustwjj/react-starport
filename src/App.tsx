@@ -1,19 +1,25 @@
-import { useState } from 'react'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
-
+import { useEffect, useState } from 'react'
+import TheImage from './components/TheImage'
+import FloatContainer from './components/FloatContainer'
+import Router from './router'
+import { MetaDataContext, useMetaData } from './global/floating'
 function App() {
-  const navigate = useNavigate()
+  const [metaData, setMetaData] = useMetaData()
+  useEffect(() => {
+    console.log(metaData)
+  }, [metaData])
   return (
-    <div className='w-full  flex flex-col items-center '>
-      <div className='py-50px'>home</div>
-      <Outlet />
-      <button
-        className='bg-[#bfa] px-10px py-5px rounded-md text-black'
-        onClick={() => navigate('/foo')}
-      >
-        foo
-      </button>
-    </div>
+    <MetaDataContext.Provider
+      value={{
+        metadata: metaData,
+        setMetadata: setMetaData,
+      }}
+    >
+      <div className='w-full  flex flex-col items-center '>
+        <Router />
+      </div>
+      <FloatContainer slot={<TheImage />} />
+    </MetaDataContext.Provider>
   )
 }
 

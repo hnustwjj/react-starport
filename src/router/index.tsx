@@ -1,11 +1,11 @@
 import { useRoutes } from 'react-router-dom'
-import App from '../App'
-import Foo from '../view/foo'
+import Index from '../pages/index'
+import Foo from '../pages/foo'
 export default () => {
   const routes = useRoutes([
     {
       path: '/',
-      element: <App />,
+      element: <Index />,
     },
     {
       path: 'foo',
