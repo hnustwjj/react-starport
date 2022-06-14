@@ -4,15 +4,14 @@ import FloatContainer from './components/FloatContainer'
 import Router from './router'
 import { MetaDataContext, useMetaData } from './global/floating'
 function App() {
-  const [metaData, setMetaData] = useMetaData()
-  useEffect(() => {
-    console.log(metaData)
-  }, [metaData])
+  const { metadata, setMetadata, proxyEl } = useMetaData()
+
   return (
     <MetaDataContext.Provider
       value={{
-        metadata: metaData,
-        setMetadata: setMetaData,
+        metadata,
+        setMetadata,
+        proxyEl,
       }}
     >
       <div className='w-full  flex flex-col items-center '>

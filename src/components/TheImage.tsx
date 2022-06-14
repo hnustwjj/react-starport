@@ -1,5 +1,6 @@
 import React, { memo, useState } from 'react'
 
+// 待测的组件，放到FloatContainer中
 const TheImage = memo((props: any) => {
   const [state, setState] = useState(false)
   return (

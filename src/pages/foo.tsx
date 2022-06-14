@@ -2,7 +2,6 @@ import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
 import FloatProxy from '../components/FloatProxy'
 
-import TheImage from '../components/TheImage'
 const Foo = memo(() => {
   return (
     <>
@@ -15,7 +14,7 @@ const Foo = memo(() => {
           home
         </Link>
       </div>
-      <FloatProxy w='100' h='100' m='10' rounded='xl' />
+      <FloatProxy w='100' h='100' m='20' rounded='1/2' />
     </>
   )
 })
