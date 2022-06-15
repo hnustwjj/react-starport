@@ -12,7 +12,9 @@ const FloatProxy = memo((props: any) => {
 
   // 将metadata传递给这个div，占据原本内容应该占据的面积
   // TODO:监听Proxy盒子的位置改变，不然duration会导致container中获取的高度出现问题
-  return <div ref={proxyEl} {...metadata} />
+  return (
+    <div ref={proxyEl} transition='~ all' bg='white' {...metadata} />
+  )
 })
 
 export default FloatProxy

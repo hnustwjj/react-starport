@@ -4,7 +4,7 @@ import { useState } from 'react'
 import React, { memo } from 'react'
 
 const Home = memo(() => {
-  const [size, setSize] = useState(100)
+  const [size, setSize] = useState(200)
   return (
     <>
       <div className='w-full flex flex-col items-center '>
