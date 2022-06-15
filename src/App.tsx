@@ -14,9 +14,7 @@ function App() {
         proxyEl,
       }}
     >
-      <div className='w-full  flex flex-col items-center '>
-        <Router />
-      </div>
+      <Router />
       <FloatContainer slot={<TheImage />} />
     </MetaDataContext.Provider>
   )

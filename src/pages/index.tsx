@@ -1,7 +1,5 @@
-import { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import FloatProxy from '../components/FloatProxy'
-import TheImage from '../components/TheImage'
 
 function App() {
   return (
@@ -15,7 +13,7 @@ function App() {
           foo
         </Link>
       </div>
-      <FloatProxy w='50' h='50' m='10' rounded='xl' />
+      <FloatProxy w='50' h='50' m='50' rounded='xl' />
     </>
   )
 }

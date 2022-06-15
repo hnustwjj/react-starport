@@ -14,7 +14,7 @@ const Foo = memo(() => {
           home
         </Link>
       </div>
-      <FloatProxy w='100' h='100' m='20' rounded='1/2' />
+      <FloatProxy w='100' h='100' m='5' rounded='1/2' />
     </>
   )
 })
