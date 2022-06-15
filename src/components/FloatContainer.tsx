@@ -1,4 +1,10 @@
-import React, { memo, useContext, useEffect, useState } from 'react'
+import React, {
+  memo,
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+} from 'react'
 import { MetaDataContext } from '../global/floating'
 
 // 用于持有浮动的组件（用插槽显示）
@@ -7,29 +13,45 @@ import { MetaDataContext } from '../global/floating'
 const FloatContainer = memo((props: { slot: JSX.Element }) => {
   const { metadata, proxyEl } = useContext(MetaDataContext)
   // 保存真实盒子的偏移量
-  const [offset, setOffset] = useState<{
-    top?: string
-    left?: string
-  }>({})
+  // const [offset, setOffset] = useState<{
+  //   top?: string
+  //   left?: string
+  // }>({})
+
+  const divRef = useRef<HTMLElement>(null)
   useEffect(() => {
     // 注意，需要监听proxyEl.current的改变，否则这个副作用不会执行
-    const el = proxyEl?.current
-    if (el) {
-      setOffset({
-        top: el.offsetTop + 'px',
-        left: el.offsetLeft + 'px',
-      })
-      console.log(offset)
+
+    //TODO:计算偏移量的函数
+    // setOffset({
+    //   top: proxyEl?.current?.offsetTop + 'px',
+    //   left: proxyEl?.current?.offsetLeft + 'px',
+    // })
+    if (divRef.current) {
+      divRef.current.style.top = proxyEl?.current?.offsetTop + 'px'
+      divRef.current.style.left = proxyEl?.current?.offsetLeft + 'px'
+      console.log(proxyEl?.current, proxyEl?.current?.offsetTop)
     }
   }, [proxyEl?.current])
+
+  // FIXME:setState好像很浪费性能，目前先用这种方法
+  window.addEventListener('resize', () => {
+    if (divRef.current) {
+      divRef.current.style.top = proxyEl?.current?.offsetTop + 'px'
+      divRef.current.style.left = proxyEl?.current?.offsetLeft + 'px'
+    }
+  })
   return (
     <div
-      overflow='hidden'
       {...metadata}
       m='!0'
-      transition='~ all'
+      duration='500'
       fixed='~'
-      style={offset}
+      ref={divRef}
+      style={{
+        transition: 'all .5s ease-in-out',
+        ...metadata?.style,
+      }}
     >
       {props.slot}
     </div>
