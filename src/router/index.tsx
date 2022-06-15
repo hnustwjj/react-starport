@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom'
-import Index from '../pages/index'
+import Index from '../pages/Home'
 import Foo from '../pages/foo'
 export default () => {
   const routes = useRoutes([
