@@ -4,6 +4,7 @@ import FloatProxy from '../components/FloatProxy'
 
 const Foo = memo(() => {
   const [size, setSize] = useState(300)
+  const [mode, setMode] = useState(false)
   return (
     <>
       <div className='w-full flex flex-col items-center'>
@@ -17,14 +18,14 @@ const Foo = memo(() => {
           </Link>
           <button
             className='px-10px py-5px rounded-md text-white'
-            onClick={() => setSize(size + 30)}
+            onClick={() => setMode(!mode)}
           >
-            enlarge
+            toggle
           </button>
         </nav>
       </div>
       <FloatProxy
-        style={{ width: size + 'px', height: size + 'px' }}
+        className={mode ? 'w-50 h-50' : 'w-60 h-30'}
         m='5'
         rounded='xl'
         overflow='hidden'
