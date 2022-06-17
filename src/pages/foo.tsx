@@ -16,6 +16,12 @@ const Foo = memo(() => {
           >
             go:home
           </Link>
+          <Link
+            to='/bar'
+            className='px-10px py-5px rounded-md text-white no-underline'
+          >
+            go:bar
+          </Link>
           <button
             className='px-10px py-5px rounded-md text-white'
             onClick={() => setMode(!mode)}

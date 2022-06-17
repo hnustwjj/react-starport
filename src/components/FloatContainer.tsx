@@ -5,6 +5,7 @@ import React, {
   useState,
   useRef,
 } from 'react'
+import { useLocation } from 'react-router-dom'
 import { MetaDataContext } from '../global/floating'
 
 // 用于持有浮动的组件（用插槽显示）
@@ -12,20 +13,18 @@ import { MetaDataContext } from '../global/floating'
 // div的m-!0是因为margin在offset计算中已经算进去了，如果有的话也不需要添加
 // TODO:研究getBoundingCliengRect()的用法
 const FloatContainer = memo((props: { slot: JSX.Element }) => {
+  const location = useLocation()
   const { metadata, proxyEl } = useContext(MetaDataContext)
 
   const divRef = useRef<HTMLElement>({} as HTMLElement)
   function update() {
-    // 暂时只能找到用延时的方法获取偏移量（不然会因为proxyEl的动画导致获取不到正确的偏移量）
-    divRef.current.style.top =
-      (proxyEl?.current as HTMLElement).getBoundingClientRect().top +
-      'px'
-    divRef.current.style.left =
-      (proxyEl?.current as HTMLElement).getBoundingClientRect().left +
-      'px'
+    const rect = proxyEl.current?.getBoundingClientRect?.()
+    divRef.current.style.top = (rect?.top ?? -999) + 'px'
+    divRef.current.style.left = (rect?.left ?? -999) + 'px'
   }
 
   useEffect(() => {
+    console.log(proxyEl.current)
     // 注意，需要监听proxyEl.current的改变，否则这个副作用不会执行
     //TODO:计算偏移量的函数
     update()
@@ -33,7 +32,7 @@ const FloatContainer = memo((props: { slot: JSX.Element }) => {
     return () => {
       window.removeEventListener('resize', update)
     }
-  }, [proxyEl?.current, metadata.style])
+  }, [location.pathname, metadata])
 
   return (
     <div
