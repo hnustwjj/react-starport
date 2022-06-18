@@ -1,10 +1,4 @@
-import React, {
-  memo,
-  useContext,
-  useEffect,
-  useState,
-  useRef,
-} from 'react'
+import React, { memo, useContext, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { MetaDataContext } from '../global/floating'
 
