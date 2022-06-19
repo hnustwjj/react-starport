@@ -9,7 +9,6 @@ import { MetaDataContext } from '../global/floating'
 const FloatContainer = memo((props: { slot: JSX.Element }) => {
   const location = useLocation()
   const { metadata, proxyEl } = useContext(MetaDataContext)
-
   const divRef = useRef<HTMLElement>({} as HTMLElement)
   function update() {
     const rect = proxyEl.current?.getBoundingClientRect?.()
