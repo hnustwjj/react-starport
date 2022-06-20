@@ -19,6 +19,7 @@ let timer: any
 const FloatContainer = memo((props: { slot: JSX.Element }) => {
   const location = useLocation()
   const { metadata, proxyEl } = useContext(MetaDataContext)
+  const divRef = useRef<HTMLElement>({} as HTMLElement)
   const [landed, setLanded] = useState(false)
   // 起飞
   const liftOff = function () {
@@ -34,33 +35,31 @@ const FloatContainer = memo((props: { slot: JSX.Element }) => {
     // divRef.current.style.pointerEvents = 'none'
   }
   //TODO:解决dom操作是异步的问题，研究portal的用法（到底会不会渲染新的children）
+  //TODO:现在的问题是，在切换路由之后，proxyList为空，原来的浮动组件丢失了
   useEffect(() => {
     // 起飞
     if (landed === false) {
       const proxyList = proxyEl.current.children
-      console.log('代理组件的子元素：', proxyList, proxyList.length)
+      console.log('起飞', proxyList)
       if (proxyList.length !== 0) {
         // 起飞的时候将proxyEl的子元素插入到divRef中
         const slot = proxyEl.current.removeChild(proxyList[0])
-        console.log('开始起飞：', slot)
         divRef.current.appendChild(slot)
       }
       divRef.current.style.pointerEvents = 'auto'
     } else {
       // 下落
       const divList = divRef.current.children
-      console.log('container的子元素', divList, divList.length)
+      console.log('下落', divList)
       if (divList.length !== 0) {
         //落地之后将元素插入到浮动容器中
         const slot = divRef.current.removeChild(divList[0])
-        console.log('开始下落：', slot)
         proxyEl.current.appendChild(slot)
       }
       divRef.current.style.pointerEvents = 'none'
     }
   }, [landed])
 
-  const divRef = useRef<HTMLElement>({} as HTMLElement)
   function update() {
     liftOff()
     if (divRef.current) {
