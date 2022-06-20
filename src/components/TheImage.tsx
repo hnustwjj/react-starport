@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 // 待测的组件，放到FloatContainer中
 const TheImage = memo((props: any) => {
   const [state, setState] = useState(false)
+  console.log('re-render')
   return (
     <div onClick={() => setState(!state)} w='full' h='full'>
       {state ? (
