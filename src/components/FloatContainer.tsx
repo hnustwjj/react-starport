@@ -7,7 +7,6 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
 import { MetaDataContext } from '../global/floating'
 
@@ -15,53 +14,12 @@ import { MetaDataContext } from '../global/floating'
 // 将全局的metadata(样式）传递给slot外面的div
 // div的m-!0是因为margin在offset计算中已经算进去了，如果有的话也不需要添加
 // TODO:研究getBoundingCliengRect()的用法
-let timer: any
 const FloatContainer = memo((props: { slot: JSX.Element }) => {
   const location = useLocation()
   const { metadata, proxyEl } = useContext(MetaDataContext)
   const divRef = useRef<HTMLElement>({} as HTMLElement)
-  const [landed, setLanded] = useState(false)
-  // 起飞
-  const liftOff = function () {
-    setLanded(false)
-  }
-  // 落地
-  const land = function () {
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      setLanded(true)
-    }, 500)
-
-    // divRef.current.style.pointerEvents = 'none'
-  }
-  //TODO:解决dom操作是异步的问题，研究portal的用法（到底会不会渲染新的children）
-  //TODO:现在的问题是，在切换路由之后，proxyList为空，原来的浮动组件丢失了
-  useEffect(() => {
-    // 起飞
-    if (landed === false) {
-      const proxyList = proxyEl.current.children
-      console.log('起飞', proxyList)
-      if (proxyList.length !== 0) {
-        // 起飞的时候将proxyEl的子元素插入到divRef中
-        const slot = proxyEl.current.removeChild(proxyList[0])
-        divRef.current.appendChild(slot)
-      }
-      divRef.current.style.pointerEvents = 'auto'
-    } else {
-      // 下落
-      const divList = divRef.current.children
-      console.log('下落', divList)
-      if (divList.length !== 0) {
-        //落地之后将元素插入到浮动容器中
-        const slot = divRef.current.removeChild(divList[0])
-        proxyEl.current.appendChild(slot)
-      }
-      divRef.current.style.pointerEvents = 'none'
-    }
-  }, [landed])
 
   function update() {
-    liftOff()
     if (divRef.current) {
       const rect = proxyEl.current?.getBoundingClientRect?.()
       if (rect) {
@@ -75,7 +33,6 @@ const FloatContainer = memo((props: { slot: JSX.Element }) => {
         divRef.current.style.opacity = '0'
       }
     }
-    land()
   }
 
   useEffect(() => {
