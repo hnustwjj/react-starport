@@ -31,6 +31,14 @@ const Foo = memo(() => {
         </nav>
       </div>
       <FloatProxy
+        port='1'
+        className={mode ? 'w-50 h-50' : 'w-60 h-30'}
+        m='5'
+        rounded='xl'
+        overflow='hidden'
+      />
+      <FloatProxy
+        port='2'
         className={mode ? 'w-50 h-50' : 'w-60 h-30'}
         m='5'
         rounded='xl'

@@ -1,22 +1,14 @@
-import { useEffect, useState } from 'react'
 import TheImage from './components/TheImage'
 import FloatContainer from './components/FloatContainer'
 import Router from './router'
-import { MetaDataContext, useMetaData } from './global/floating'
+import Starport from './components/Starport'
 function App() {
-  const { metadata, setMetadata, proxyEl } = useMetaData()
-
   return (
-    <MetaDataContext.Provider
-      value={{
-        metadata,
-        setMetadata,
-        proxyEl,
-      }}
-    >
+    <Starport>
       <Router />
-      <FloatContainer slot={<TheImage />} />
-    </MetaDataContext.Provider>
+      <FloatContainer slot={<TheImage />} port='1' />
+      <FloatContainer slot={<TheImage />} port='2' />
+    </Starport>
   )
 }
 
