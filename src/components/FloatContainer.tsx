@@ -1,5 +1,4 @@
 import React, { memo, useContext, useEffect, useMemo, useRef } from 'react'
-import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
 import { StarportContext } from './Starport'
 
@@ -15,19 +14,17 @@ const FloatContainer = memo((props: { slot: JSX.Element; port: string }) => {
   function update() {
     if (divRef.current) {
       const rect = proxyElArr[props.port]?.current?.getBoundingClientRect?.()
-      if (rect) {
-        divRef.current.style.top = (rect?.top ?? -999) + 'px'
-        divRef.current.style.left = (rect?.left ?? -999) + 'px'
-        //复位
-        divRef.current.style.transform = 'translateY(0)'
+      if (rect && proxyElArr[props.port]?.current) {
+        divRef.current.style.top = rect?.top + 'px'
+        divRef.current.style.left = rect?.left + 'px'
         divRef.current.style.opacity = '1'
+        divRef.current.style.transform = 'translateY(0px)'
       } else {
-        divRef.current.style.transform = 'translateY(-100px)'
         divRef.current.style.opacity = '0'
+        divRef.current.style.transform = 'translateY(-50px)'
       }
     }
   }
-
   useEffect(() => {
     update()
     window.addEventListener('resize', update)
@@ -35,17 +32,22 @@ const FloatContainer = memo((props: { slot: JSX.Element; port: string }) => {
       window.removeEventListener('resize', update)
     }
   }, [location.pathname, metadata])
+
   const children = useMemo(() => props.slot, [])
   return (
     <div
       {...metadata[props.port]}
       m='!0'
-      duration='500'
       absolute='~'
+      transition='all'
+      duration='900'
+      border='1px solid red'
       ref={divRef}
       style={{
-        transition: 'all .5s ease-in-out',
         ...metadata[props.port]?.style,
+      }}
+      onTransitionEnd={() => {
+        console.log('gaibian')
       }}
     >
       {children}
