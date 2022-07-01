@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import FloatProxy from '../components/FloatProxy'
 
 const Foo = memo(() => {
-  const [size, setSize] = useState(300)
   const [mode, setMode] = useState(false)
   return (
     <>

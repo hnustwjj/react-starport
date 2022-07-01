@@ -11,7 +11,7 @@ const FloatContainer = memo((props: { slot: JSX.Element; port: string }) => {
   const location = useLocation()
   const { metadata, proxyElArr } = useContext(StarportContext)
   const divRef = useRef<HTMLElement>({} as HTMLElement)
-
+  //TODO:在有滚动的情况下切换，偏移量出现问题（重大bug）
   function update() {
     if (divRef.current) {
       const rect = proxyElArr[props.port]?.current?.getBoundingClientRect?.()
