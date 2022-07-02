@@ -18,7 +18,9 @@ const FloatContainer = memo(
     const { metadata, proxyElArr } = useContext(StarportContext)
     const [landed, setLanded] = useState(false)
     const divRef = useRef<HTMLElement>(null)
-
+    useEffect(() => {
+      console.log('qifei zhuiji')
+    }, [landed])
     const update = async () => {
       // 等待一个tick，不然的话会出现抖动
       await setTimeout(() => {})

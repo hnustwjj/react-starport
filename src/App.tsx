@@ -25,6 +25,7 @@ function App() {
         {imgs.map((img, index) => {
           return (
             <FloatContainer
+              key={index}
               slot={() => <TheImage src={img} />}
               port={index + ''}
             />

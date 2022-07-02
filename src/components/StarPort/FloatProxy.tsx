@@ -4,6 +4,7 @@ import { StarportContext } from './Starport'
 // 并且将proxyEl这个ref绑定到div上，以便于获取FloatContainer真实位置
 const FloatProxy = memo((props: PropsWithChildren<{ port: string }>) => {
   const { setMetadata, metadata, setProxyElArr } = useContext(StarportContext)
+  console.log('re-render')
   const ref = React.useRef<HTMLDivElement>(null)
   useEffect(() => {
     setMetadata((pre: any) => ({ ...pre, [props.port]: props }))
