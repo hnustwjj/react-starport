@@ -15,7 +15,6 @@ const imgs = [
   'https://images.unsplash.com/photo-1511104286249-cade2ff54588?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=512&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjQ4OTkwNTAw&ixlib=rb-1.2.1&q=80&w=512',
   'https://images.unsplash.com/photo-1621161411321-19a54f5f1a1c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=512&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjQ4OTkwNTA0&ixlib=rb-1.2.1&q=80&w=512',
   'https://images.unsplash.com/photo-1619075120156-f5729c752edf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=512&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjQ5MDAyMTI4&ixlib=rb-1.2.1&q=80&w=512',
-  'https://images.unsplash.com/photo-1619075120156-f5729c752edf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=512&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjQ5MDAyMTI4&ixlib=rb-1.2.1&q=80&w=512',
 ]
 function App() {
   return (
@@ -27,7 +26,7 @@ function App() {
             <FloatContainer
               key={index}
               slot={() => <TheImage src={img} />}
-              port={index + ''}
+              port={index + 1 + ''}
             />
           )
         })}
