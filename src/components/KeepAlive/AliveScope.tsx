@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom'
 
 const AliveScopeContext = createContext<any>({})
 
+// 用于缓存children，
 export const AliveScope = (props: any) => {
   const [nodes, setNodes] = useState<any>({})
   const { children } = props
   const getPortalElement = (id: any, children: any) => {
     if (!nodes[id]) {
+      // 传送children到element
       const element = document.createElement('div')
       element.style.width = '100%'
       element.style.height = '100%'

@@ -1,7 +1,6 @@
 import React, { memo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import FloatProxy from '../components/FloatProxy'
-
+import FloatProxy from '../components/StarPort/FloatProxy'
 const Foo = memo(() => {
   const [mode, setMode] = useState(false)
   return (
@@ -30,90 +29,18 @@ const Foo = memo(() => {
         </nav>
       </div>
       <div flex='~ wrap' justify='center'>
-        <FloatProxy
-          port='1'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        {/* <FloatProxy
-          port='2'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='3'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='4'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='5'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='6'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='7'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='8'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='9'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='10'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='11'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        />
-        <FloatProxy
-          port='12'
-          className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-          m='5'
-          rounded='xl'
-          overflow='hidden'
-        /> */}
+        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].map(
+          item => (
+            <FloatProxy
+              key={item}
+              port={item}
+              className={mode ? 'w-60 h-50' : 'w-60 h-30'}
+              m='5'
+              rounded='xl'
+              overflow='hidden'
+            />
+          )
+        )}
       </div>
     </>
   )
