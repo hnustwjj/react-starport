@@ -19,7 +19,6 @@ const FloatContainer = memo(
     const [landed, setLanded] = useState(false)
     const divRef = useRef<HTMLElement>(null)
 
-    //TODO:在有滚动的情况下切换，偏移量出现问题（重大bug）
     const update = async () => {
       // 等待一个tick，不然的话会出现抖动
       await setTimeout(() => {})
@@ -27,8 +26,14 @@ const FloatContainer = memo(
       if (divRef.current) {
         const rect = proxyElArr[props.port]?.current?.getBoundingClientRect?.()
         if (rect) {
-          divRef.current.style.top = rect?.top + 'px'
-          divRef.current.style.left = rect?.left + 'px'
+          divRef.current.style.top =
+            rect?.top +
+            (document.body.scrollTop || document.documentElement.scrollTop) +
+            'px'
+          divRef.current.style.left =
+            rect?.left +
+            (document.body.scrollLeft || document.documentElement.scrollLeft) +
+            'px'
           divRef.current.style.opacity = '1'
           divRef.current.style.transform = 'translateY(0px)'
         } else {
