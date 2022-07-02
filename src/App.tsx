@@ -13,7 +13,7 @@ function App() {
           )}
           port='1'
         />
-        <FloatContainer
+        {/* <FloatContainer
           slot={() => (
             <TheImage src='https://images.unsplash.com/photo-1620315808304-66597517f188?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=512&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjQ4OTMyNTE4&ixlib=rb-1.2.1&q=80&w=512' />
           )}
@@ -78,7 +78,7 @@ function App() {
             <TheImage src='https://images.unsplash.com/photo-1619075120156-f5729c752edf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=512&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjQ5MDAyMTI4&ixlib=rb-1.2.1&q=80&w=512' />
           )}
           port='12'
-        />
+        /> */}
       </Starport>
     </div>
   )

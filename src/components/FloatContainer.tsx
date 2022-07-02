@@ -25,7 +25,9 @@ const FloatContainer = memo(
       }
     }, [])
     //TODO:在有滚动的情况下切换，偏移量出现问题（重大bug）
-    function update() {
+    const update = async () => {
+      // 等待一个tick，不然的话会出现抖动
+      await setTimeout(() => {})
       setLanded(false)
       if (divRef.current) {
         const rect = proxyElArr[props.port]?.current?.getBoundingClientRect?.()
@@ -39,11 +41,11 @@ const FloatContainer = memo(
           divRef.current.style.transform = 'translateY(-50px)'
           divRef.current.style.pointerEvents = 'none'
         }
+        clearTimeout(timer[props.port])
+        timer[props.port] = setTimeout(() => {
+          setLanded(true)
+        }, 900)
       }
-      clearTimeout(timer[props.port])
-      timer[props.port] = setTimeout(() => {
-        setLanded(true)
-      }, 900)
     }
 
     useEffect(() => {
@@ -53,6 +55,7 @@ const FloatContainer = memo(
         window.removeEventListener('resize', update)
       }
     }, [location.pathname, metadata])
+
     return (
       <div
         {...metadata[props.port]}

@@ -37,7 +37,7 @@ const Foo = memo(() => {
           rounded='xl'
           overflow='hidden'
         />
-        <FloatProxy
+        {/* <FloatProxy
           port='2'
           className={mode ? 'w-60 h-50' : 'w-60 h-30'}
           m='5'
@@ -113,7 +113,7 @@ const Foo = memo(() => {
           m='5'
           rounded='xl'
           overflow='hidden'
-        />
+        /> */}
       </div>
     </>
   )
