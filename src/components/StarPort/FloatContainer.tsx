@@ -15,10 +15,12 @@ let timer = {} as any
 const FloatContainer = memo(
   (props: { slot: () => JSX.Element; port: string }) => {
     const location = useLocation()
-    const { metadata, proxyElArr } = useContext(StarportContext)
+    const { metadata, proxyElArr, setLandedMap } = useContext(StarportContext)
     const [landed, setLanded] = useState(false)
     const divRef = useRef<HTMLElement>(null)
-
+    useEffect(() => {
+      setLandedMap((pre: any) => ({ ...pre, [props.port]: setLanded }))
+    }, [])
     const update = async () => {
       // 等待一个tick，不然的话会出现抖动
       await setTimeout(() => {})
