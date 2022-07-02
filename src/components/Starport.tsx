@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { AliveScope } from './AliveScope'
 export const StarportContext = React.createContext<{
   metadata?: any
   setMetadata?: any
@@ -23,7 +24,7 @@ const Starport = memo((props: { children: any }) => {
         setLandedMap,
       }}
     >
-      {Array.isArray(children) ? children?.map(item => item) : children}
+      <AliveScope>{children} </AliveScope>
     </StarportContext.Provider>
   )
 })

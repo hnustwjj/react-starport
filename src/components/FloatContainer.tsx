@@ -8,6 +8,7 @@ import React, {
 } from 'react'
 import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
+import KeepAlive from './KeepAlive'
 import { StarportContext } from './Starport'
 
 // 用于持有浮动的组件（用插槽显示）
@@ -32,7 +33,7 @@ const FloatContainer = memo(
     }, [])
     //TODO:在有滚动的情况下切换，偏移量出现问题（重大bug）
     function update() {
-      // setLanded(false)
+      setLanded(false)
       if (divRef.current) {
         const rect = proxyElArr[props.port]?.current?.getBoundingClientRect?.()
         if (rect && proxyElArr[props.port]?.current) {
@@ -76,11 +77,15 @@ const FloatContainer = memo(
       >
         {landed && proxyElArr[props.port]?.current ? (
           createPortal(
-            <props.slot key={props.port} />,
+            <KeepAlive id={props.port}>
+              <props.slot />
+            </KeepAlive>,
             proxyElArr[props.port]?.current
           )
         ) : (
-          <props.slot key={props.port} />
+          <KeepAlive id={props.port}>
+            <props.slot />
+          </KeepAlive>
         )}
       </div>
     )

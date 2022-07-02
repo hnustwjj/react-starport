@@ -10,18 +10,18 @@ const Foo = memo(() => {
       <div className='w-full flex flex-col items-center'>
         <div className='py-50px'>current:Foo</div>
         <nav>
-          <MyLink
+          <Link
             to='/'
             className='px-10px py-5px rounded-md text-white no-underline'
           >
             go:home
-          </MyLink>
-          <MyLink
+          </Link>
+          <Link
             to='/bar'
             className='px-10px py-5px rounded-md text-white no-underline'
           >
             go:bar
-          </MyLink>
+          </Link>
           <button
             className='px-10px py-5px rounded-md text-white'
             onClick={() => setMode(!mode)}
@@ -38,7 +38,7 @@ const Foo = memo(() => {
           rounded='xl'
           overflow='hidden'
         />
-        {/* <FloatProxy
+        <FloatProxy
           port='2'
           className={mode ? 'w-60 h-50' : 'w-60 h-30'}
           m='5'
@@ -114,7 +114,7 @@ const Foo = memo(() => {
           m='5'
           rounded='xl'
           overflow='hidden'
-        /> */}
+        />
       </div>
     </>
   )
