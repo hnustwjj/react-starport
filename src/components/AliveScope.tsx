@@ -2,7 +2,6 @@ import React, { useContext, createContext, useState } from 'react'
 import ReactDOM from 'react-dom'
 
 const AliveScopeContext = createContext<any>({})
-
 export const AliveScope = (props: any) => {
   const [nodes, setNodes] = useState<any>({})
   const { children } = props

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import FloatProxy from '../components/FloatProxy'
 import { useState } from 'react'
 import React, { memo } from 'react'
-import { MyLink } from '../router'
 
 const Home = memo(() => {
   const [size, setSize] = useState(200)

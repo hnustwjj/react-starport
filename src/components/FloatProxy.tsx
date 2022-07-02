@@ -14,7 +14,7 @@ const FloatProxy = memo((props: PropsWithChildren<{ port: string }>) => {
     }
   }, [props])
   // 将metadata传递给这个div，占据原本内容应该占据的面积
-  return <div ref={ref} {...metadata[props.port]} />
+  return <div ref={ref} bg='white' {...metadata[props.port]} />
 })
 
 export default FloatProxy

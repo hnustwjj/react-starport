@@ -1,11 +1,4 @@
-import React, {
-  memo,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import React, { memo, useContext, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
 import KeepAlive from './KeepAlive'
@@ -50,12 +43,9 @@ const FloatContainer = memo(
       clearTimeout(timer[props.port])
       timer[props.port] = setTimeout(() => {
         setLanded(true)
-        console.log('动画结束')
       }, 900)
     }
-    useEffect(() => {
-      console.log(!landed ? '起飞' : '落地')
-    }, [landed])
+
     useEffect(() => {
       update()
       window.addEventListener('resize', update)

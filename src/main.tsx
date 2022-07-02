@@ -6,8 +6,6 @@ import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
-    <div className='w-[100vw] h-full'>
-      <App />
-    </div>
+    <App />
   </BrowserRouter>
 )

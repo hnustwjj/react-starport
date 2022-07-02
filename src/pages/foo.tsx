@@ -1,7 +1,6 @@
 import React, { memo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import FloatProxy from '../components/FloatProxy'
-import { MyLink } from '../router'
 
 const Foo = memo(() => {
   const [mode, setMode] = useState(false)
