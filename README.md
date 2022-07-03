@@ -1,5 +1,5 @@
 # react-starport
-灵感来自于antfu的vue-starport
+倘若你希望你的组件在不同的地方使用，在切换的时候保存组件的状态并且拥有平滑的过渡动画，不妨看看这个~
 
 # 项目难点
 1、封装KeepAlive缓存组件解决Portal重新渲染children的问题
