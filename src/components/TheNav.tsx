@@ -1,6 +1,3 @@
-{/* <script setup lang="ts">
-import { isDark, isDebug, toggleDark, toggleDebug } from '~/composables'
-</script> */}
 import { Link } from 'react-router-dom'
 import React from 'react'
 export default function TheNav() {
@@ -22,11 +19,6 @@ export default function TheNav() {
       <div className="flex-auto" />
 
       <div flex="~ gap-4" items="center">
-        {/* <button
-          className="icon-btn !outline-none p-1"
-        >
-          <div className="i-carbon-debug" />
-        </button> */}
         <a
           className="icon-btn i-carbon-logo-github"
           
