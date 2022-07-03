@@ -13,15 +13,6 @@ const Starport = memo((props: { children: any }) => {
   const [metadata, setMetadata] = React.useState<any>({})
   const [proxyElArr, setProxyElArr] = React.useState<any>({})
   const [landedMap, setLandedMap] = React.useState<any>({})
-  useEffect(() => {
-    // console.log('metadata', metadata)
-  }, [metadata])
-  useEffect(() => {
-    // console.log('proxyElArr', proxyElArr)
-  }, [proxyElArr])
-  useEffect(() => {
-    // console.log('landedMap', landedMap)
-  }, [landedMap])
 
   return (
     <StarportContext.Provider

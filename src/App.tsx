@@ -20,6 +20,9 @@ const imgs = [
 function App() {
   return (
     <div className='bg-black w-full text-white'>
+      <a href='https://github.com/hnustwjj/react-starport'>
+        仓库点这里~欢迎star
+      </a>
       <Starport>
         <Router />
         {imgs.map((img, index) => {
