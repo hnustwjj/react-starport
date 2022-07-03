@@ -8,7 +8,11 @@ const Home = memo(() => {
   return (
     <>
       <div className='w-full flex flex-col items-center '>
-        <div className='py-50px'>current:index</div>
+        <div className='my-50px flex justify-center items-center'>
+          <div>current:index</div>
+          <FloatProxy port='13' w='96px' h='72px' ml='13px' />
+        </div>
+
         <nav>
           <Link
             to='/foo'

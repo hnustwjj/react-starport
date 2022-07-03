@@ -7,6 +7,7 @@ const Foo = memo(() => {
     <>
       <div className='w-full flex flex-col items-center'>
         <div className='py-50px'>current:Foo</div>
+        <FloatProxy port='13' w='96px' h='72px' />
         <nav>
           <Link
             to='/'
