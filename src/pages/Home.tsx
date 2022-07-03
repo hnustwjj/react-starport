@@ -16,6 +16,18 @@ const Home = memo(() => {
           >
             go:foo
           </Link>
+          <Link
+            to='/transfer-list'
+            className='no-underline px-10px py-5px rounded-md text-white'
+          >
+            go:transfer-list
+          </Link>
+          <Link
+            to='/bar'
+            className='px-10px py-5px rounded-md text-white no-underline'
+          >
+            go:bar
+          </Link>
           <button
             className='px-10px py-5px rounded-md text-white'
             onClick={() => setSize(size + 30)}

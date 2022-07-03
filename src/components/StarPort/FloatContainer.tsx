@@ -21,6 +21,7 @@ const FloatContainer = memo(
     useEffect(() => {
       setLandedMap((pre: any) => ({ ...pre, [props.port]: setLanded }))
     }, [])
+
     const update = async () => {
       // 等待一个tick，不然的话会出现抖动
       await setTimeout(() => {})
@@ -37,10 +38,10 @@ const FloatContainer = memo(
             (document.body.scrollLeft || document.documentElement.scrollLeft) +
             'px'
           divRef.current.style.opacity = '1'
-          divRef.current.style.transform = 'translateY(0px)'
+          divRef.current.style.transform = 'none'
         } else {
           divRef.current.style.opacity = '0'
-          divRef.current.style.transform = 'translateY(-20px)'
+          divRef.current.style.transform = 'translateY(-20px) scale(0)'
           divRef.current.style.pointerEvents = 'none'
         }
       }
@@ -57,7 +58,6 @@ const FloatContainer = memo(
         window.removeEventListener('resize', update)
       }
     }, [location.pathname, metadata])
-
     return (
       <div
         {...metadata[props.port]}
