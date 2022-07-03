@@ -3,6 +3,7 @@ import FloatContainer from './components/StarPort/FloatContainer'
 import Router from './router'
 import Starport from './components/StarPort/Starport'
 import Info from './components/Info'
+import TheNav from './components/TheNav'
 const imgs = [
   'https://images.unsplash.com/photo-1618125214135-83ced9805c7b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=512&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjQ4OTMyNDcw&ixlib=rb-1.2.1&q=80&w=512',
   'https://images.unsplash.com/photo-1620315808304-66597517f188?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=512&ixid=MnwxfDB8MXxyYW5kb218MHw5NDczNDU2Nnx8fHx8fHwxNjQ4OTMyNTE4&ixlib=rb-1.2.1&q=80&w=512',
@@ -19,8 +20,8 @@ const imgs = [
 ]
 function App() {
   return (
-    <div className='bg-black w-full text-white'>
-      <a
+    <div className='bg-white w-full text-[#374751] min-h-100vh'>
+      {/* <a
         href='https://github.com/hnustwjj/react-starport'
         hover='text-yellow-500'
         text='yellow-200'
@@ -28,7 +29,8 @@ function App() {
         duration='200'
       >
         仓库点这里~欢迎star
-      </a>
+      </a> */}
+      <TheNav />
       <Starport>
         <Router />
         {imgs.map((img, index) => {

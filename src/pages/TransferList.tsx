@@ -8,25 +8,28 @@ const TransferList = memo(() => {
 
   return (
     <div className='w-full flex flex-col items-center '>
-      <div className='py-50px'>current:TransferList</div>
-      <nav>
+      <div className='py-50px'>Current:TransferList</div>
+      <nav flex="~" gap="2">
         <Link
           to='/foo'
           className='no-underline px-10px py-5px rounded-md text-white'
+          bg="[#4074ba]"
         >
-          go:foo
+          Go:foo
         </Link>
         <Link
           to='/'
           className='no-underline px-10px py-5px rounded-md text-white'
+          bg="[#4074ba]"
         >
-          go:home
+          Go:home
         </Link>
         <Link
           to='/bar'
           className='px-10px py-5px rounded-md text-white no-underline'
+          bg="[#4074ba]"
         >
-          go:bar
+          Go:bar
         </Link>
       </nav>
       <div className='my-5'> 试试看点击图片会发生什么</div>
