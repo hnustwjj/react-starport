@@ -29,8 +29,9 @@ const TransferList = memo(() => {
           go:bar
         </Link>
       </nav>
+      <div my='10'> 试试看点击图片会发生什么</div>
       <div flex='~'>
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center w-60 mr-5'>
           <span>ListA</span>
           {listA.map(item => (
             <FloatProxy
@@ -44,7 +45,7 @@ const TransferList = memo(() => {
             />
           ))}
         </div>
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center w-60'>
           <span>ListB</span>
           {listB.map(item => (
             <FloatProxy

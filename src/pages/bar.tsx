@@ -13,6 +13,12 @@ const Bar = memo(() => {
           >
             go:home
           </Link>
+          <Link
+            to='/transfer-list'
+            className='px-10px py-5px rounded-md text-white no-underline'
+          >
+            go:transfer-list
+          </Link>
         </nav>
       </div>
     </>
