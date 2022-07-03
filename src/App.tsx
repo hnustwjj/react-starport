@@ -20,7 +20,13 @@ const imgs = [
 function App() {
   return (
     <div className='bg-black w-full text-white'>
-      <a href='https://github.com/hnustwjj/react-starport'>
+      <a
+        href='https://github.com/hnustwjj/react-starport'
+        hover='text-yellow-500'
+        text='yellow-200'
+        transition='all'
+        duration='200'
+      >
         仓库点这里~欢迎star
       </a>
       <Starport>
