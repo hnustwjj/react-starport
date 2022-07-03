@@ -19,11 +19,60 @@ npm i react-starport
 
 > 注意：一定要给`Container`唯一的port字符串
 
-![](https://img.jzsp66.xyz/github/image-20220703165832869.png)
+```tsx
+function App() {
+  return (
+    <div className='bg-black w-full text-white'>
+      <Starport>
+        <Router />
+        {imgs.map((img, index) => {
+          return (
+            <FloatContainer
+              key={index}
+              slot={() => <TheImage src={img} />}
+              port={index + 1 + ''}
+            />
+          )
+        })}
+        <FloatContainer slot={() => <Info />} port='13' />
+      </Starport>
+    </div>
+  )
+}
+```
 
 接着，我们就可以在页面中使用`FloatProxy`组件来渲染`FloatContainer`组件的`slot`指定的内容了（渲染的时候`slot`外面会多一层`div`），如下。我们可以给`FloatProxy`传入一些`props`，他们会被挂载到`slot`外的`div`上（一般来说可以传入一些样式，**但是不推荐使用与百分比有关的单位**）。
 
-![](https://img.jzsp66.xyz/github/image-20220703170116040.png)
+```tsx
+const Foo = memo(() => {
+  const [mode, setMode] = useState(false)
+  return (
+    <>
+      <div className='w-full flex flex-col items-center'>
+        <div className='py-50px'>current:Foo</div>
+        <FloatProxy port='13' w='96px' h='72px' />
+        <nav>
+		  ...
+        </nav>
+      </div>
+      <div flex='~ wrap' justify='center'>
+        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].map(
+          item => (
+            <FloatProxy
+              key={item}
+              port={item}
+              className={mode ? 'w-60 h-50' : 'w-60 h-30'}
+              m='5'
+              rounded='xl'
+              overflow='hidden'
+            />
+          )
+        )}
+      </div>
+    </>
+  )
+})
+```
 
 页面最终渲染如下（图片中的数字是组件内为了标记组件是否重新渲染的组件状态）
 
@@ -35,7 +84,52 @@ npm i react-starport
 
 我们再新建一个`TransferList`页面，用到了其中一部分图片，如下所示（我们将前六张图片分成了ListA和ListB进行展示）
 
-![](https://img.jzsp66.xyz/github/image-20220703170944222.png)
+```tsx
+const TransferList = memo(() => {
+  const [listA, setListA] = useState(['1', '2', '3'])
+  const [listB, setListB] = useState(['4', '5', '6'])
+
+  return (
+    <div className='w-full flex flex-col items-center '>
+      <div className='py-50px'>current:TransferList</div>
+      <nav>
+		...
+      </nav>
+      <div className='my-5'> 试试看点击图片会发生什么</div>
+      <div flex='~'>
+        <div className='flex flex-col items-center w-60 mr-5'>
+          <span>ListA</span>
+          {listA.map(item => (
+            <FloatProxy
+              onClick={() => {
+                setListA(listA.filter(i => i !== item))
+                setListB([...listB, item])
+              }}
+              key={item}
+              port={item}
+              className='m-5 rounded-xl overflow-hidden w-60 h-30'
+            />
+          ))}
+        </div>
+        <div className='flex flex-col items-center w-60'>
+          <span>ListB</span>
+          {listB.map(item => (
+            <FloatProxy
+              onClick={() => {
+                setListB(listB.filter(i => i !== item))
+                setListA([...listA, item])
+              }}
+              key={item}
+              port={item}
+              className='m-5 rounded-xl overflow-hidden w-60 h-30'
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+})
+```
 
 渲染结果如下
 
