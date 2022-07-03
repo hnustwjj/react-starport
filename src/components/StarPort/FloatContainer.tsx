@@ -50,7 +50,7 @@ const FloatContainer = memo(
         setLanded(true)
       }, 900)
     }
-
+    metadata[props.port] && console.log(landed, proxyElArr[props.port]?.current)
     useEffect(() => {
       update()
       window.addEventListener('resize', update)

@@ -7,6 +7,9 @@ const FloatProxy = memo((props: PropsWithChildren<{ port: string }> & any) => {
     useContext(StarportContext)
   const ref = React.useRef<HTMLDivElement>(null)
   useEffect(() => {
+    Promise.resolve().then(
+      () => landedMap[props.port] && landedMap[props.port](false)
+    )
     setMetadata((pre: any) => ({ ...pre, [props.port]: props }))
     setProxyElArr((pre: any) => ({ ...pre, [props.port]: ref }))
     return () => {
