@@ -1,37 +1,39 @@
 import { defineConfig } from 'vite'
-import path from 'path'
 import react from '@vitejs/plugin-react'
 import WindiCSS from 'vite-plugin-windicss'
 import Unocss from 'unocss/vite'
-import Icons from 'unplugin-icons/vite'
 import {
-  defineConfig,
   presetAttributify,
   presetIcons,
   presetUno,
   presetWebFonts,
-  // transformerDirectives,
-  // transformerVariantGroup,
 } from 'unocss'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [WindiCSS(), react(), Unocss({
-    shortcuts: [
-      ['icon-btn', 'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
-    ],
-    presets: [
-      presetUno(),
-      presetAttributify(),
-      presetIcons({
-        scale: 1.2,
-        warn: true,
-      }),
-      presetWebFonts({
-        fonts: {
-          serif: 'DM Serif Display',
-          mono: 'DM Mono',
-        },
-      }),
-    ],
-  })],
+  plugins: [
+    WindiCSS(),
+    react(),
+    Unocss({
+      shortcuts: [
+        [
+          'icon-btn',
+          'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600',
+        ],
+      ],
+      presets: [
+        presetUno(),
+        presetAttributify(),
+        presetIcons({
+          scale: 1.2,
+          warn: true,
+        }),
+        presetWebFonts({
+          fonts: {
+            serif: 'DM Serif Display',
+            mono: 'DM Mono',
+          },
+        }),
+      ],
+    }),
+  ],
 })
