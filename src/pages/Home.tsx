@@ -9,34 +9,39 @@ const Home = memo(() => {
     <>
       <div className='w-full flex flex-col items-center '>
         <div className='my-50px flex justify-center items-center'>
-          <div>current:index</div>
+          <div>Current:index</div>
           <FloatProxy port='13' w='96px' h='72px' ml='13px' />
         </div>
 
-        <nav>
+        <nav flex="~" gap="2">
           <Link
             to='/foo'
             className='no-underline px-10px py-5px rounded-md text-white'
+            bg="[#4074ba]"
           >
-            go:foo
+            Go:foo
           </Link>
           <Link
             to='/transfer-list'
             className='no-underline px-10px py-5px rounded-md text-white'
+            bg="[#4074ba]"
           >
-            go:transfer-list
+            Go:transfer-list
           </Link>
           <Link
             to='/bar'
             className='px-10px py-5px rounded-md text-white no-underline'
+            bg="[#4074ba]"
           >
-            go:bar
+            Go:bar
           </Link>
           <button
             className='px-10px py-5px rounded-md text-white'
+            border="~"
+            bg="[#4074ba]"
             onClick={() => setSize(size + 30)}
           >
-            enlarge
+            Enlarge
           </button>
         </nav>
         <div className='mt-10 flex <md:(flex-col-reverse items-center) md:(justify-center w-[60%] items-center)'>

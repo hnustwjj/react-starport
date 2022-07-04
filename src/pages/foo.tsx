@@ -6,32 +6,36 @@ const Foo = memo(() => {
   return (
     <>
       <div className='w-full flex flex-col items-center'>
-        <div className='py-50px'>current:Foo</div>
+        <div className='py-50px'>Current:Foo</div>
         <FloatProxy port='13' w='96px' h='72px' />
-        <nav>
+        <nav flex="~" gap="2">
           <Link
             to='/'
             className='px-10px py-5px rounded-md text-white no-underline'
+            bg="[#4074ba]"
           >
-            go:home
+            Go:home
           </Link>
           <Link
             to='/transfer-list'
             className='no-underline px-10px py-5px rounded-md text-white'
+            bg="[#4074ba]"
           >
-            go:transfer-list
+            Go:transfer-list
           </Link>
           <Link
             to='/bar'
             className='no-underline px-10px py-5px rounded-md text-white'
+            bg="[#4074ba]"
           >
-            go:bar
+            Go:bar
           </Link>
           <button
             className='px-10px py-5px rounded-md text-white'
+            bg="[#4074ba]"
             onClick={() => setMode(!mode)}
           >
-            toggle
+            Toggle
           </button>
         </nav>
       </div>

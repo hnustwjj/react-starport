@@ -5,19 +5,21 @@ const Bar = memo(() => {
   return (
     <>
       <div className='w-full flex flex-col items-center'>
-        <div className='py-50px'>current:Bar</div>
-        <nav>
+        <div className='py-50px'>Current:Bar</div>
+        <nav flex="~" gap="2">
           <Link
             to='/'
             className='px-10px py-5px rounded-md text-white no-underline'
+            bg="[#4074ba]"
           >
-            go:home
+            Go:home
           </Link>
           <Link
             to='/transfer-list'
             className='px-10px py-5px rounded-md text-white no-underline'
+            bg="[#4074ba]"
           >
-            go:transfer-list
+            Go:transfer-list
           </Link>
         </nav>
       </div>
