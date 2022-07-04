@@ -6,7 +6,7 @@ const TheImage = memo((props: any) => {
   return (
     <div className='w-full h-full relative' onClick={() => setState(state + 1)}>
       <img className='object-cover w-full h-full' src={props.src} />
-      <span className='absolute bottom-0 left-1/2'>{state}</span>
+      <span className='absolute bottom-0 left-1/2 text-white'>{state}</span>
     </div>
   )
 })

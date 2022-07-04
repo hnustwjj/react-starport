@@ -70,8 +70,7 @@ const FloatContainer = memo(
           ...metadata[props.port]?.style,
         }}
       >
-        <props.slot />
-        {/* {
+        {
           //如果有metadata才显示插槽，防止抖动
           metadata[props.port] &&
             (landed && proxyElArr[props.port]?.current ? (
@@ -86,7 +85,7 @@ const FloatContainer = memo(
                 <props.slot />
               </KeepAlive>
             ))
-        } */}
+        }
         {/* <props.slot /> */}
       </div>
     )

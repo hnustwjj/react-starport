@@ -10,7 +10,7 @@ export default function TheNav() {
       text='xl [#374751]'
       items='center'
     >
-      <Link to='/' flex='~ gap-2' items-center>
+      <Link to='/' flex='~ gap-2' items='center'>
         {/* <img src="/favicon.svg" h-10 /> */}
         <div className='font-mono text-center  mr-6 text-md'>
           React Starport
