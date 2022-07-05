@@ -1,4 +1,8 @@
-![img](./logo.svg)
+<p align="center">
+  <br/>
+  <img src="logo.svg" width="600" />
+  <br/>
+</p>
 
 # react-starport
 倘若你希望你的组件在不同的地方使用，在切换的时候保存组件的状态并且拥有平滑的过渡动画，不妨看看这个~
