@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 import { AliveScope } from '../KeepAlive/AliveScope'
 export const StarportContext = React.createContext<{
   metadata?: any
