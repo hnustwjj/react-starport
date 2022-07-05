@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import WindiCSS from 'vite-plugin-windicss'
 import Unocss from 'unocss/vite'
+import pkg from './package.json'
 import {
   presetAttributify,
   presetIcons,
@@ -36,4 +37,15 @@ export default defineConfig({
       ],
     }),
   ],
+  build: {
+    lib: {
+      entry: './src/main.tsx',
+      formats: ['es', 'umd'],
+      name: pkg.name,
+      fileName: format => `index.${format}.js`,
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom', 'react-router-dom'],
+    },
+  },
 })

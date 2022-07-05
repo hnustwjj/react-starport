@@ -3,13 +3,23 @@
 
 # 使用方法
 
-还未发布！！！只是写readme
+
 
 ```js
 npm i react-starport
 ```
-
-
+在入口文件引入css
+```
+import 'react-starport/style.css'
+```
+```
+ ReactDOM.createRoot(document.getElementById('root')!).render(
+   <Starport>
+     <App />
+   </Starport>
+)
+```
+# demo
 
 倘若我们有这些图片数据需要共享
 

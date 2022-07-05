@@ -21,15 +21,6 @@ const imgs = [
 function App() {
   return (
     <div className='bg-white w-full text-[#374751] min-h-100vh'>
-      {/* <a
-        href='https://github.com/hnustwjj/react-starport'
-        hover='text-yellow-500'
-        text='yellow-200'
-        transition='all'
-        duration='200'
-      >
-        仓库点这里~欢迎star
-      </a> */}
       <TheNav />
       <Starport>
         <Router />
