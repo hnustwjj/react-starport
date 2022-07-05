@@ -12,6 +12,7 @@ export default function TheNav() {
     >
       <Link to='/' flex='~ gap-2' items='center'>
         {/* <img src="/favicon.svg" h-10 /> */}
+        <img src="../../../logo.svg" h="10"/>
         <div className='font-mono text-center  mr-6 text-md'>
           React Starport
         </div>
