@@ -6,12 +6,13 @@
 
 
 ```js
-npm i react-starport
+npm i r-starport
 ```
 在入口文件引入css
 ```
-import 'react-starport/style.css'
+import 'r-starport/style.css'
 ```
+用Starport组件包裹整个App
 ```
  ReactDOM.createRoot(document.getElementById('root')!).render(
    <Starport>
@@ -19,6 +20,7 @@ import 'react-starport/style.css'
    </Starport>
 )
 ```
+准备工作完成，详细使用看下面的demo
 # demo
 
 倘若我们有这些图片数据需要共享

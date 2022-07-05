@@ -1,7 +1,7 @@
 {
-  "name": "react-starport",
+  "name": "r-starport",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/src/main.d.ts",
