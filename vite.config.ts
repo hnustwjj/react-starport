@@ -37,15 +37,15 @@ export default defineConfig({
       ],
     }),
   ],
-  build: {
-    lib: {
-      entry: './src/main.tsx',
-      formats: ['es', 'umd'],
-      name: pkg.name,
-      fileName: format => `index.${format}.js`,
-    },
-    rollupOptions: {
-      external: ['react', 'react-dom', 'react-router-dom'],
-    },
-  },
+  // build: {
+  //   lib: {
+  //     entry: './src/main.tsx',
+  //     formats: ['es', 'umd'],
+  //     name: pkg.name,
+  //     fileName: format => `index.${format}.js`,
+  //   },
+  //   rollupOptions: {
+  //     external: ['react', 'react-dom', 'react-router-dom'],
+  //   },
+  // },
 })
