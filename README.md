@@ -9,11 +9,11 @@
 npm i r-starport
 ```
 在入口文件引入css
-```
+```js
 import 'r-starport/style.css'
 ```
 用Starport组件包裹整个App
-```
+```jsx
  ReactDOM.createRoot(document.getElementById('root')!).render(
    <Starport>
      <App />
