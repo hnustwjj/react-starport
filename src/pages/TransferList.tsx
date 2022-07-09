@@ -17,13 +17,6 @@ const TransferList = memo(() => {
         >
           back
         </Link>
-        <Link
-          to='/bar'
-          className='px-10px py-5px rounded-md text-white no-underline'
-          bg='[#4074ba]'
-        >
-          Go:bar
-        </Link>
       </nav>
       <div className='my-5'> 试试看点击图片会发生什么</div>
       <div flex='~'>
