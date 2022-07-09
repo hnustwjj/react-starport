@@ -1,7 +1,7 @@
 import { useRoutes } from 'react-router-dom'
-import Detail from '../pages/Detail'
+import Detail from '../pages/detail'
 import Home from '../pages/Home'
-import None from '../pages/None'
+import None from '../pages/none'
 import TransferList from '../pages/TransferList'
 export default () => {
   const routes = useRoutes([
