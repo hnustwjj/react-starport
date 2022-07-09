@@ -1,21 +1,21 @@
 import { useRoutes } from 'react-router-dom'
-import Index from '../pages/Home'
-import Foo from '../pages/foo'
-import Bar from '../pages/bar'
+import Detail from '../pages/detail'
+import Home from '../pages/home'
+import None from '../pages/none'
 import TransferList from '../pages/TransferList'
 export default () => {
   const routes = useRoutes([
     {
       path: '/',
-      element: <Index />,
+      element: <Home />,
     },
     {
-      path: 'foo',
-      element: <Foo />,
+      path: 'detail/:id',
+      element: <Detail />,
     },
     {
-      path: 'bar',
-      element: <Bar />,
+      path: 'none',
+      element: <None />,
     },
     {
       path: 'transfer-list',

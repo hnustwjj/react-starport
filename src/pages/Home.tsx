@@ -1,127 +1,54 @@
-import { Link } from 'react-router-dom'
+import React, { memo, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import FloatProxy from '../components/StarPort/FloatProxy'
-import { useState } from 'react'
-import React, { memo } from 'react'
-
 const Home = memo(() => {
-  const [size, setSize] = useState(200)
+  const [mode, setMode] = useState(false)
+  const navigate = useNavigate()
+
   return (
     <>
-      <div className='w-full flex flex-col items-center '>
-        <div className='my-50px flex justify-center items-center'>
-          <div>Current:index</div>
-          <FloatProxy port='13' w='96px' h='72px' ml='13px' />
-        </div>
-
-        <nav flex="~" gap="2">
-          <Link
-            to='/foo'
-            className='no-underline px-10px py-5px rounded-md text-white'
-            bg="[#4074ba]"
-          >
-            Go:foo
-          </Link>
+      <div className='w-full flex flex-col items-center'>
+        <div className='pt-50px '>Current:Foo</div>
+        <FloatProxy port='13' w='96px' h='72px' />
+        <nav flex='~' gap='2' m='y-10px'>
           <Link
             to='/transfer-list'
             className='no-underline px-10px py-5px rounded-md text-white'
-            bg="[#4074ba]"
+            bg='[#4074ba]'
           >
             Go:transfer-list
           </Link>
           <Link
-            to='/bar'
-            className='px-10px py-5px rounded-md text-white no-underline'
-            bg="[#4074ba]"
+            to='/none'
+            className='no-underline px-10px py-5px rounded-md text-white'
+            bg='[#4074ba]'
           >
-            Go:bar
+            Go:none
           </Link>
           <button
             className='px-10px py-5px rounded-md text-white'
-            border="~"
-            bg="[#4074ba]"
-            onClick={() => setSize(size + 30)}
+            bg='[#4074ba]'
+            onClick={() => setMode(!mode)}
           >
-            Enlarge
+            Toggle
           </button>
         </nav>
-        <div className='mt-10 flex <md:(flex-col-reverse items-center) md:(justify-center w-[60%] items-center)'>
-          <p flex='1' className='m-10'>
-            现代多使用于魔兽世界中，戏称死了以后尸体躺在地上长期不消失的现象。而游戏职业术士作为最容易集火导致死亡的目标，被玩家戏称为“躺尸术”。
-            《魔兽世界》中有一位术士ID为爱你就这样，其于游戏版本5.4初期为了去金团消费而买空淘宝金币，因此其得以红极一时。引申意：在集体宿舍中被人吵得睡不着觉，在床上干躺着，也称为躺尸，可见宿舍之吵环境之差。
-            其它引申意：形容睡觉睡的死，一动不动的，不管外边有什么情况也不会有什么反应了！
-          </p>
-          <FloatProxy
-            port='1'
-            style={{ width: size + 'px', height: size + 'px' }}
-            rounded='1/2'
-            overflow='hidden'
-          />
-        </div>
-        <div className='mt-10 flex <md:(flex-col items-center) md:(justify-center w-[60%] items-center)'>
-          <FloatProxy
-            port='2'
-            style={{ width: size + 'px', height: size + 'px' }}
-            rounded='1/2'
-            overflow='hidden'
-          />
-          <p flex='1' className='m-10'>
-            现代多使用于魔兽世界中，戏称死了以后尸体躺在地上长期不消失的现象。而游戏职业术士作为最容易集火导致死亡的目标，被玩家戏称为“躺尸术”。
-            《魔兽世界》中有一位术士ID为爱你就这样，其于游戏版本5.4初期为了去金团消费而买空淘宝金币，因此其得以红极一时。引申意：在集体宿舍中被人吵得睡不着觉，在床上干躺着，也称为躺尸，可见宿舍之吵环境之差。
-            其它引申意：形容睡觉睡的死，一动不动的，不管外边有什么情况也不会有什么反应了！
-          </p>
-        </div>
-        <div className='mt-10 flex <md:(flex-col-reverse items-center) md:(justify-center w-[60%] items-center)'>
-          <p flex='1' className='m-10'>
-            现代多使用于魔兽世界中，戏称死了以后尸体躺在地上长期不消失的现象。而游戏职业术士作为最容易集火导致死亡的目标，被玩家戏称为“躺尸术”。
-            《魔兽世界》中有一位术士ID为爱你就这样，其于游戏版本5.4初期为了去金团消费而买空淘宝金币，因此其得以红极一时。引申意：在集体宿舍中被人吵得睡不着觉，在床上干躺着，也称为躺尸，可见宿舍之吵环境之差。
-            其它引申意：形容睡觉睡的死，一动不动的，不管外边有什么情况也不会有什么反应了！
-          </p>
-          <FloatProxy
-            port='3'
-            style={{ width: size + 'px', height: size + 'px' }}
-            rounded='1/2'
-            overflow='hidden'
-          />
-        </div>
-        <div className='mt-10 flex <md:(flex-col items-center) md:(justify-center w-[60%] items-center)'>
-          <FloatProxy
-            port='4'
-            style={{ width: size + 'px', height: size + 'px' }}
-            rounded='1/2'
-            overflow='hidden'
-          />
-          <p flex='1' className='m-10'>
-            现代多使用于魔兽世界中，戏称死了以后尸体躺在地上长期不消失的现象。而游戏职业术士作为最容易集火导致死亡的目标，被玩家戏称为“躺尸术”。
-            《魔兽世界》中有一位术士ID为爱你就这样，其于游戏版本5.4初期为了去金团消费而买空淘宝金币，因此其得以红极一时。引申意：在集体宿舍中被人吵得睡不着觉，在床上干躺着，也称为躺尸，可见宿舍之吵环境之差。
-            其它引申意：形容睡觉睡的死，一动不动的，不管外边有什么情况也不会有什么反应了！
-          </p>
-        </div>
-        <div className='mt-10 flex <md:(flex-col-reverse items-center) md:(justify-center w-[60%] items-center)'>
-          <p flex='1' className='m-10'>
-            现代多使用于魔兽世界中，戏称死了以后尸体躺在地上长期不消失的现象。而游戏职业术士作为最容易集火导致死亡的目标，被玩家戏称为“躺尸术”。
-            《魔兽世界》中有一位术士ID为爱你就这样，其于游戏版本5.4初期为了去金团消费而买空淘宝金币，因此其得以红极一时。引申意：在集体宿舍中被人吵得睡不着觉，在床上干躺着，也称为躺尸，可见宿舍之吵环境之差。
-            其它引申意：形容睡觉睡的死，一动不动的，不管外边有什么情况也不会有什么反应了！
-          </p>
-          <FloatProxy
-            port='5'
-            style={{ width: size + 'px', height: size + 'px' }}
-            rounded='1/2'
-            overflow='hidden'
-          />
-        </div>
-        <div className='mt-10 flex <md:(flex-col items-center) md:(justify-center w-[60%] items-center)'>
-          <FloatProxy
-            port='6'
-            style={{ width: size + 'px', height: size + 'px' }}
-            rounded='1/2'
-            overflow='hidden'
-          />
-          <p flex='1' className='m-10'>
-            现代多使用于魔兽世界中，戏称死了以后尸体躺在地上长期不消失的现象。而游戏职业术士作为最容易集火导致死亡的目标，被玩家戏称为“躺尸术”。
-            《魔兽世界》中有一位术士ID为爱你就这样，其于游戏版本5.4初期为了去金团消费而买空淘宝金币，因此其得以红极一时。引申意：在集体宿舍中被人吵得睡不着觉，在床上干躺着，也称为躺尸，可见宿舍之吵环境之差。
-            其它引申意：形容睡觉睡的死，一动不动的，不管外边有什么情况也不会有什么反应了！
-          </p>
-        </div>
+      </div>
+      <div flex='~ wrap' justify='center' m='t-10px'>
+        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].map(
+          item => (
+            <FloatProxy
+              key={item}
+              port={item}
+              className={mode ? 'w-60 h-50' : 'w-60 h-30'}
+              m='5'
+              rounded='xl'
+              cursor='pointer'
+              overflow='hidden'
+              onClick={() => navigate('/detail/' + item)}
+            />
+          )
+        )}
       </div>
     </>
   )
