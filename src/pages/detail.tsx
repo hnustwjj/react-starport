@@ -6,7 +6,7 @@ import React, { memo } from 'react'
 const Detail = memo(() => {
   const [size, setSize] = useState(200)
   const params = useParams()
-  console.log(params)
+  console.log(((Number(params.id) + 1) % 12) + '')
   return (
     <>
       <div className='w-full flex flex-col items-center '>
@@ -53,7 +53,7 @@ const Detail = memo(() => {
           </p>
 
           <FloatProxy
-            port={((Number(params.id) + 1) % 12) + ''}
+            port={(Number(params.id) % 12) + 1 + ''}
             style={{ width: size + 'px', height: size + 'px' }}
             rounded='1/2'
             overflow='hidden'
