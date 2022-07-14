@@ -24,7 +24,7 @@ const FloatContainer = memo(
 
     const update = async () => {
       // 等待一个tick，不然的话会出现抖动
-      await setTimeout(() => {})
+      // await Promise.resolve().then(() => {})
       setLanded(false)
       if (divRef.current) {
         const rect = proxyElArr[props.port]?.current?.getBoundingClientRect?.()
