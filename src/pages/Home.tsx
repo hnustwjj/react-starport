@@ -25,6 +25,13 @@ const Home = memo(() => {
           >
             Go:none
           </Link>
+          <Link
+            to='/percent'
+            className='no-underline px-10px py-5px rounded-md text-white'
+            bg='[#4074ba]'
+          >
+            Go:percent
+          </Link>
           <button
             className='px-10px py-5px rounded-md text-white'
             bg='[#4074ba]'
@@ -35,20 +42,31 @@ const Home = memo(() => {
         </nav>
       </div>
       <div flex='~ wrap' justify='center' m='t-10px'>
-        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].map(
-          item => (
-            <FloatProxy
-              key={item}
-              port={item}
-              className={mode ? 'w-60 h-50' : 'w-60 h-30'}
-              m='5'
-              rounded='xl'
-              cursor='pointer'
-              overflow='hidden'
-              onClick={() => navigate('/detail/' + item)}
-            />
-          )
-        )}
+        {[
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+          '6',
+          '7',
+          '8',
+          '9',
+          '10',
+          '11',
+          '12',
+        ].map(item => (
+          <FloatProxy
+            key={item}
+            port={item}
+            className={mode ? 'w-60 h-50' : 'w-60 h-30'}
+            m='5'
+            rounded='xl'
+            cursor='pointer'
+            overflow='hidden'
+            onClick={() => navigate('/detail/' + item)}
+          />
+        ))}
       </div>
     </>
   )

@@ -1,3 +1,4 @@
+import Percent from '../pages/Percent'
 import { useRoutes } from 'react-router-dom'
 import Detail from '../pages/detail'
 import Home from '../pages/Home'
@@ -16,6 +17,10 @@ export default () => {
     {
       path: 'none',
       element: <None />,
+    },
+    {
+      path: 'percent',
+      element: <Percent />,
     },
     {
       path: 'transfer-list',

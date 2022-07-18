@@ -20,22 +20,24 @@ const imgs = [
 ]
 function App() {
   return (
-    <div className='bg-white w-full text-[#374751] min-h-100vh'>
-      <TheNav />
-      <Starport>
-        <Router />
-        {imgs.map((img, index) => {
-          return (
-            <FloatContainer
-              key={index}
-              slot={() => <TheImage src={img} />}
-              port={index + 1 + ''}
-            />
-          )
-        })}
-        <FloatContainer slot={() => <Info />} port='13' />
-      </Starport>
-    </div>
+    <Starport>
+      <div className='bg-white w-full text-[#374751] h-full'>
+        <TheNav />
+        <div h='full'>
+          <Router />
+        </div>
+      </div>
+      <FloatContainer slot={() => <Info />} port='13' />
+      {imgs.map((img, index) => {
+        return (
+          <FloatContainer
+            key={index}
+            slot={() => <TheImage src={img} />}
+            port={index + 1 + ''}
+          />
+        )
+      })}
+    </Starport>
   )
 }
 

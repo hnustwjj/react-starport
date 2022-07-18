@@ -1,4 +1,10 @@
-import React, { memo, useContext, useEffect, useRef, useState } from 'react'
+import React, {
+  memo,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
 import KeepAlive from '../KeepAlive/KeepAlive'
@@ -15,34 +21,39 @@ let timer = {} as any
 const FloatContainer = memo(
   (props: { slot: () => JSX.Element; port: string }) => {
     const location = useLocation()
-    const { metadata, proxyElArr, setLandedMap } = useContext(StarportContext)
+
+    const { metadata, proxyElArr, setLandedMap } =
+      useContext(StarportContext)
+    // 起飞落地的状态
     const [landed, setLanded] = useState(false)
     const divRef = useRef<HTMLElement>(null)
+
     useEffect(() => {
+      // 注册setLanded函数
       setLandedMap((pre: any) => ({ ...pre, [props.port]: setLanded }))
     }, [])
 
     const update = async () => {
       // 等待一个tick，不然的话会出现抖动
-      // await Promise.resolve().then(() => {})
+      await Promise.resolve().then(() => {})
       setLanded(false)
       if (divRef.current) {
-        const rect = proxyElArr[props.port]?.current?.getBoundingClientRect?.()
+        const style = divRef.current.style
+        const rect =
+          proxyElArr[props.port]?.current?.getBoundingClientRect?.()
         if (rect) {
-          divRef.current.style.top =
-            rect?.top +
-            (document.body.scrollTop || document.documentElement.scrollTop) +
-            'px'
-          divRef.current.style.left =
-            rect?.left +
-            (document.body.scrollLeft || document.documentElement.scrollLeft) +
-            'px'
-          divRef.current.style.opacity = '1'
-          divRef.current.style.transform = 'none'
+          const scrollTop =
+            document.body.scrollTop || document.documentElement.scrollTop
+          const scrollLeft =
+            document.body.scrollLeft || document.documentElement.scrollLeft
+          style.top = rect?.top + scrollTop + 'px'
+          style.left = rect?.left + scrollLeft + 'px'
+          style.opacity = '1'
+          style.transform = 'none'
         } else {
-          divRef.current.style.opacity = '0'
-          divRef.current.style.transform = 'translateY(-20px) scale(0)'
-          divRef.current.style.pointerEvents = 'none'
+          style.opacity = '0'
+          style.transform = 'translateY(-20px) scale(0)'
+          style.pointerEvents = 'none'
         }
       }
       clearTimeout(timer[props.port])
@@ -50,6 +61,7 @@ const FloatContainer = memo(
         setLanded(true)
       }, 900)
     }
+
     useEffect(() => {
       update()
       window.addEventListener('resize', update)
