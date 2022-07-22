@@ -5,7 +5,7 @@ import FloatProxy from '../components/StarPort/FloatProxy'
 const TransferList = memo(() => {
   const [listA, setListA] = useState(['1', '2', '3'])
   const [listB, setListB] = useState(['4', '5', '6'])
-
+  const [mode, setMode] = useState(false)
   return (
     <div className='w-full flex flex-col items-center '>
       <div className='py-50px'>Current:TransferList</div>
@@ -17,6 +17,13 @@ const TransferList = memo(() => {
         >
           back
         </Link>
+        <button
+          className='px-10px py-5px rounded-md text-white'
+          bg='[#4074ba]'
+          onClick={() => setMode(!mode)}
+        >
+          Toggle
+        </button>
       </nav>
       <div className='my-5'> 试试看点击图片会发生什么</div>
       <div flex='~'>
@@ -30,7 +37,9 @@ const TransferList = memo(() => {
               }}
               key={item}
               port={item}
-              className='m-5 rounded-xl overflow-hidden w-60 h-30'
+              className={`m-5 rounded-xl overflow-hidden ${
+                mode ? 'w-60 h-50' : 'w-60 h-30'
+              }`}
             />
           ))}
         </div>
@@ -44,7 +53,9 @@ const TransferList = memo(() => {
               }}
               key={item}
               port={item}
-              className='m-5 rounded-xl overflow-hidden w-60 h-30'
+              className={`m-5 rounded-xl overflow-hidden ${
+                mode ? 'w-60 h-50' : 'w-60 h-30'
+              }`}
             />
           ))}
         </div>
