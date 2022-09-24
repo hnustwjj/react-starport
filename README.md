@@ -8,6 +8,32 @@
 倘若你希望你的组件在不同的地方使用，在切换的时候保存组件的状态并且拥有平滑的过渡动画，不妨看看这个~
 在线demo：[react-starport.vercel.app/](https://react-starport.vercel.app/)
 
+# 实现思路
+
+在传统的wen应用中，切换页面，意味着组件的卸载和重新挂载，组件的生命周期会执行，内部的状态也会丢失
+
+<p align="center">
+  <br/>
+  <img src="https://img.jzsp66.xyz/github/1231232134.png" width="400" />
+  <br/>
+</p>
+
+但是用FLIP的思路的话，我们页面中的组件，**只是一个代理组件**，用于**接收一些位置信息和一些props**。而真正要渲染的组件，其实是用**绝对定位悬浮在整个App下的**，根据代理组件接收到的位置和样式信息，将悬浮的真正组件通过补间动画的形式移动到对应的位置。
+
+<p align="center">
+  <br/>
+  <img src="https://img.jzsp66.xyz/github/asdasd7.png" width="400" />
+  <br/>
+</p>
+
+而这不就和FLIP没有区别了吗？不不不，等到补间动画结束之后，我们可以通过createPortal（vue中是teleport）将**组件传送到对应的代理组件中**
+
+<p align="center">
+  <br/>
+  <img src="https://img.jzsp66.xyz/github/asda1503.png" width="400" />
+  <br/>
+</p>
+
 # 使用方法
 
 
@@ -152,11 +178,19 @@ const TransferList = memo(() => {
 
 渲染结果如下
 
-![](https://img.jzsp66.xyz/github/image-20220703171022293.png)
+<p align="center">
+  <br/>
+  <img src="https://img.jzsp66.xyz/github/image-20220703171022293.png" width="400" />
+  <br/>
+</p>
 
 切换路由的时候，会有平滑的补间动画，如下所示
 
-![](https://img.jzsp66.xyz/github/QQ录屏20220703171135.gif)
+<p align="center">
+  <br/>
+  <img src="https://img.jzsp66.xyz/github/QQ录屏20220703171135.gif" width="600" />
+  <br/>
+</p>
 
 
 
